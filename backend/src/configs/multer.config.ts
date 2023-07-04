@@ -1,6 +1,7 @@
 import { Request } from "express";
 import multer, { FileFilterCallback } from "multer";
 import { resolve } from "node:path";
+import { AppError } from "../errors";
 
 const tmpFolder = resolve(__dirname, "..", "..", "tmp");
 
@@ -15,11 +16,12 @@ export default {
     callback: FileFilterCallback
   ) => {
     const acceptedTypes = file.mimetype;
+
     if (acceptedTypes === "text/csv") {
       callback(null, true);
     } else {
       callback(null, false);
-      new Error("Only csv format alllowed");
+      callback(new AppError("Only csv format allowed", 404));
     }
   },
   limits: {
@@ -28,7 +30,7 @@ export default {
   storage: multer.diskStorage({
     destination: tmpFolder,
     filename: (_, file, callback) => {
-      const filename = `${file.originalname}.csv`;
+      const filename = `${file.originalname}`;
       return callback(null, filename);
     },
   }),
