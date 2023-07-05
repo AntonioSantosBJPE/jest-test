@@ -26,3 +26,9 @@ operatorsRoutes.patch(
   middlewares.validateUniqueNameOperatorsMiddleware,
   operatorsController.updateOperatorController
 );
+
+operatorsRoutes.delete(
+  "/:id",
+  middlewares.validateOperatorIdMiddleware,
+  operatorsController.deleteClientController
+);

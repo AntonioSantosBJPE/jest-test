@@ -3,10 +3,11 @@ import { Operator } from "../entities";
 import { TrequestCreateOperator } from "../interfaces/operators.interfaces";
 import {
   createOperatorService,
+  deleteOperatorService,
   retrieveOperatorService,
   retrieveOperatorsWithClientsService,
+  updateOperatorService,
 } from "../services/operators";
-import { updateOperatorService } from "../services/operators/updateOperator.service";
 
 export const createOperatorController = async (
   req: Request,
@@ -43,4 +44,13 @@ export const updateOperatorController = async (
   const body: TrequestCreateOperator = req.body;
   const response: Operator = await updateOperatorService(operator, body);
   return res.status(200).json(response);
+};
+
+export const deleteClientController = async (
+  req: Request,
+  res: Response
+): Promise<Response> => {
+  const operator: Operator = res.locals.operator;
+  await deleteOperatorService(operator);
+  return res.status(204).send();
 };
