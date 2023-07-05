@@ -5,7 +5,7 @@ export class Operator {
   @PrimaryGeneratedColumn("increment")
   id: number;
 
-  @Column({ type: "varchar", length: "120" })
+  @Column({ type: "varchar", length: "120", unique: true })
   name: string;
 
   @OneToMany(() => Client, (client) => client.operator)
