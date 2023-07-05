@@ -12,4 +12,9 @@ operatorsRoutes.post(
   operatorsController.createOperatorController
 );
 
-operatorsRoutes.get("", operatorsController.retrieveOperatorsController);
+operatorsRoutes.get("", operatorsController.retrieveOperatorsListController);
+operatorsRoutes.get(
+  "/:id",
+  middlewares.validateOperatorIdMiddleware,
+  operatorsController.retrieveOperatorController
+);

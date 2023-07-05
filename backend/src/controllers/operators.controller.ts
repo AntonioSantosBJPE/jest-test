@@ -3,6 +3,7 @@ import { Operator } from "../entities";
 import { TrequestCreateOperator } from "../interfaces/operators.interfaces";
 import {
   createOperatorService,
+  retrieveOperatorService,
   retrieveOperatorsWithClientsService,
 } from "../services/operators";
 
@@ -16,10 +17,19 @@ export const createOperatorController = async (
   return res.status(201).json(response);
 };
 
-export const retrieveOperatorsController = async (
+export const retrieveOperatorsListController = async (
   req: Request,
   res: Response
 ): Promise<Response> => {
   const response: Operator[] = await retrieveOperatorsWithClientsService();
+  return res.status(200).json(response);
+};
+
+export const retrieveOperatorController = async (
+  req: Request,
+  res: Response
+): Promise<Response> => {
+  const operatorId: number = res.locals.operator.id;
+  const response: Operator = await retrieveOperatorService(operatorId);
   return res.status(200).json(response);
 };
