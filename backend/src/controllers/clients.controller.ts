@@ -7,5 +7,5 @@ export const createClientController = async (
 ): Promise<Response> => {
   const { file } = req;
   const response = await createListClientsService(file);
-  return res.status(201).json(response);
+  return res.status(201).json({ message: response });
 };

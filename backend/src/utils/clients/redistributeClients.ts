@@ -1,11 +1,8 @@
 import { Repository } from "typeorm";
 import { AppDataSource } from "../../data-source";
 import { Client, Operator } from "../../entities";
-import { IclientsRequest } from "../../interfaces/clients.interfaces";
 
-export const distributeClients = async (
-  listClients: Client[] | IclientsRequest[]
-): Promise<void> => {
+export const redistributeClients = async (): Promise<void> => {
   const operatorRepository: Repository<Operator> =
     AppDataSource.getRepository(Operator);
 
@@ -18,21 +15,15 @@ export const distributeClients = async (
     },
   });
 
+  const listClients = await clientRepository.find();
+
   const totalOperators = listOperators.length - 1;
   let countOperators = 0;
 
-  listOperators.sort((operatorA, operatorB) => {
-    const clientsLengthDiff =
-      operatorA.clients.length - operatorB.clients.length;
-    if (clientsLengthDiff !== 0) {
-      return clientsLengthDiff;
-    } else {
-      return operatorA.id - operatorB.id;
-    }
-  });
+  listOperators.sort((operatorA, operatorB) => operatorA.id - operatorB.id);
 
-  const listClientToCreate = listClients.map((client) => {
-    const newCLient = clientRepository.create({
+  const listClientToUpdate = listClients.map((client) => {
+    const updateCLient = clientRepository.create({
       ...client,
       operator: listOperators[countOperators],
     });
@@ -43,12 +34,8 @@ export const distributeClients = async (
       countOperators++;
     }
 
-    return newCLient;
+    return updateCLient;
   });
 
-  await AppDataSource.createQueryBuilder()
-    .insert()
-    .into(Client)
-    .values(listClientToCreate)
-    .execute();
+  await clientRepository.save(listClientToUpdate);
 };

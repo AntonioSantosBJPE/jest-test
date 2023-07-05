@@ -12,6 +12,9 @@ export const retrieveOperatorsWithClientsService = async (): Promise<
     relations: {
       clients: true,
     },
+    order: {
+      id: "ASC",
+    },
   });
 
   return findListOperators;
