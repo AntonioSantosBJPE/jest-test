@@ -25,8 +25,6 @@ export const loadClients = (
       })
       .on("end", () => {
         fs.promises.unlink(file.path);
-
-        // delete clients[0];
         resolve(clients);
       })
       .on("error", (err) => {

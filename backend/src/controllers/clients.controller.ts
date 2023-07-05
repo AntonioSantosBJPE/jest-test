@@ -1,11 +1,11 @@
 import { Request, Response } from "express";
-import { loadClients } from "../utils/clients/loadClients";
+import { createListClientsService } from "../services/clients";
 
 export const createClientController = async (
   req: Request,
   res: Response
 ): Promise<Response> => {
   const { file } = req;
-  const teste = await loadClients(file!);
-  return res.status(201).json(teste);
+  const response = await createListClientsService(file);
+  return res.status(201).json(response);
 };
