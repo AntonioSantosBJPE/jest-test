@@ -1,30 +1,25 @@
-import { stringify } from "csv-stringify";
-import fs from "node:fs";
 import { Repository } from "typeorm";
 import { AppDataSource } from "../../data-source";
 import { Client } from "../../entities";
-import { AppError } from "../../errors";
+import { generateCSVFile } from "../../utils/clients/generateCsvFile.utils";
 
-export const exportListClientsService = async (): Promise<any> => {
+export const exportListClientsService = async (): Promise<void> => {
   const clientRepository: Repository<Client> =
     AppDataSource.getRepository(Client);
 
   const listClients = await clientRepository.find();
 
-  const writeStream = fs.createWriteStream("tmp/clients.csv");
-  const stringifier = stringify({
-    header: true,
-    columns: ["nome", "nascimento", "valor", "email"],
+  const csvData = listClients.map((item) => {
+    return {
+      nome: item.name,
+      nascimento: item.bithDate,
+      valor: item.value,
+      email: item.email,
+    };
   });
 
-  if (listClients.length > 0) {
-    listClients.forEach((client) => {
-      const { id, operator, ...clientNoId } = client;
-      stringifier.write(Object.values(clientNoId));
-    });
-  } else {
-    throw new AppError("Client list is empty", 400);
-  }
+  const columnsHeader = ["nome", "nascimento", "valor", "email"];
+  const filePath = "tmp/clients.csv";
 
-  stringifier.pipe(writeStream);
+  await generateCSVFile(csvData, columnsHeader, filePath);
 };
