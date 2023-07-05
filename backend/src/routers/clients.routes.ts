@@ -12,3 +12,5 @@ clientsRoutes.post(
   upload.single("file"),
   clientsController.createClientController
 );
+
+clientsRoutes.get("/export", clientsController.exportListClientsController);
