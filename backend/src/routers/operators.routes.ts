@@ -11,3 +11,5 @@ operatorsRoutes.post(
   middlewares.validateUniqueNameOperatorsMiddleware,
   operatorsController.createOperatorController
 );
+
+operatorsRoutes.get("", operatorsController.retrieveOperatorsController);

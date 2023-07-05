@@ -1,2 +1,3 @@
 import { createOperatorService } from "./createOperator.service";
-export { createOperatorService };
+import { retrieveOperatorsWithClientsService } from "./retrieveOperatorsWithClients.service";
+export { createOperatorService, retrieveOperatorsWithClientsService };
