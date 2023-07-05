@@ -18,3 +18,11 @@ operatorsRoutes.get(
   middlewares.validateOperatorIdMiddleware,
   operatorsController.retrieveOperatorController
 );
+
+operatorsRoutes.patch(
+  "/:id",
+  middlewares.validateOperatorIdMiddleware,
+  middlewares.validateBodyMiddleware(operatorCreateRequestSchema),
+  middlewares.validateUniqueNameOperatorsMiddleware,
+  operatorsController.updateOperatorController
+);

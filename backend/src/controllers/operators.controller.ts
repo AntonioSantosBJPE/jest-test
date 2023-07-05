@@ -6,6 +6,7 @@ import {
   retrieveOperatorService,
   retrieveOperatorsWithClientsService,
 } from "../services/operators";
+import { updateOperatorService } from "../services/operators/updateOperator.service";
 
 export const createOperatorController = async (
   req: Request,
@@ -31,5 +32,15 @@ export const retrieveOperatorController = async (
 ): Promise<Response> => {
   const operatorId: number = res.locals.operator.id;
   const response: Operator = await retrieveOperatorService(operatorId);
+  return res.status(200).json(response);
+};
+
+export const updateOperatorController = async (
+  req: Request,
+  res: Response
+): Promise<Response> => {
+  const operator: Operator = res.locals.operator;
+  const body: TrequestCreateOperator = req.body;
+  const response: Operator = await updateOperatorService(operator, body);
   return res.status(200).json(response);
 };
