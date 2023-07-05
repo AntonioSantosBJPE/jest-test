@@ -17,6 +17,9 @@ export class Client {
   @Column({ type: "varchar", length: "120" })
   value: string;
 
-  @ManyToOne(() => Operator, (operator) => operator.clients, { nullable: true })
+  @ManyToOne(() => Operator, (operator) => operator.clients, {
+    nullable: true,
+    onDelete: "SET NULL",
+  })
   operator?: Operator | null | undefined;
 }
