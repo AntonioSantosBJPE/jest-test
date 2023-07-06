@@ -1,10 +1,14 @@
 "use client";
+import { Button } from "@/components/Button";
+import { Spinner } from "@/components/Spinner";
 import { api } from "@/services/api";
 import { ChangeEvent, FormEvent, useRef, useState } from "react";
 import { toast } from "react-toastify";
+import { InputUpload } from "./InputUpload";
 
 export const UploadList = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [loading, setLoading] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
 
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -33,6 +37,7 @@ export const UploadList = () => {
     }
 
     try {
+      setLoading(true);
       const formData = new FormData();
       formData.append("file", selectedFile);
 
@@ -43,15 +48,28 @@ export const UploadList = () => {
       setSelectedFile(null);
     } catch (error) {
       toast.error("Erro ao enviar o arquivo CSV. Tente novamente!");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <form onSubmit={handleFormSubmit} ref={formRef}>
-      <input type="file" accept=".csv" onChange={handleFileChange} />
-      <button type="submit" className="rounded border">
-        Exportar
-      </button>
+    <form
+      onSubmit={handleFormSubmit}
+      ref={formRef}
+      className="flex flex-col  gap-4 w-full max-w-md "
+    >
+      <InputUpload onChange={handleFileChange} />
+
+      <Button type="submit" disabled={loading}>
+        {loading ? (
+          <div className="flex w-full items-center justify-center gap-2">
+            <Spinner /> <span>Exportando</span>
+          </div>
+        ) : (
+          "Exportar"
+        )}
+      </Button>
     </form>
   );
 };
