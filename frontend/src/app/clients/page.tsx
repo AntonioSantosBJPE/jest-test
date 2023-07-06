@@ -1,11 +1,14 @@
 import { ContainerLayout } from "@/components/ContainerLayout";
+import { ContainerSplitLine } from "@/components/ContainerSplitLine";
 import Link from "next/link";
-import { ExportList } from "./_components/ExportLIst.tsx";
-import { UploadList } from "./_components/UploadList";
+import { ExportList } from "./_components/_ExportLIst.tsx";
+import { UploadList } from "./_components/_UploadList";
+
 export const metadata = {
   title: "Jet-test | clientes",
   description: "Página de gerenciamento de clientes",
 };
+
 const ClientsPage = () => {
   return (
     <ContainerLayout>
@@ -21,10 +24,7 @@ const ClientsPage = () => {
         <h1 className="text-black font-bold text-xl text-center sm:text-2xl">
           Página de gerenciamento de clientes
         </h1>
-        <div
-          className="bg-red-600 w-full h-0.5 bg-gradient-to-r from-green-500 via-cyan-500 
-          to-blue-500"
-        ></div>
+        <ContainerSplitLine />
         <div className="w-full flex flex-col md:flex-row gap-10 items-center justify-center">
           <UploadList />
           <ExportList />
