@@ -4,7 +4,6 @@ import Link from "next/link";
 import { FormCreateOperator } from "./_components/_FormCreateOperator.tsx";
 import { SectionListOperators } from "./_components/_SectionListOperators";
 import { OperatorsProvider } from "./_contexts/OperatorsContext";
-import { requestListOperators } from "./_utils/requestListOperators";
 
 export const metadata = {
   title: "Jet-test | Operadores",
@@ -12,9 +11,8 @@ export const metadata = {
 };
 
 const OperatorsPage = async () => {
-  const listOperators = await requestListOperators();
   return (
-    <OperatorsProvider requestListOperators={listOperators}>
+    <OperatorsProvider>
       <ContainerLayout>
         <section className=" my-5 flex flex-col items-center gap-6 w-full h-full py-8 relative">
           <Link

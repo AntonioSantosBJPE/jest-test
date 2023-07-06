@@ -1,18 +1,31 @@
 "use client";
 
 import { api } from "@/services/api";
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import { requestListOperators } from "../_utils/requestListOperators";
 import { Ioperator, IoperatorsContext, IoperatorsProviderProps } from "./types";
 
 export const OperatorsContext = createContext({} as IoperatorsContext);
 
-export const OperatorsProvider = ({
-  children,
-  requestListOperators,
-}: IoperatorsProviderProps) => {
-  const [listOperators, setListOperators] = useState(requestListOperators);
+export const OperatorsProvider = ({ children }: IoperatorsProviderProps) => {
+  const [listOperators, setListOperators] = useState<Ioperator[]>([]);
   const [loading, setLoading] = useState(false);
+
+  const listRequest = async () => {
+    try {
+      const listOperators = await requestListOperators();
+      if (listOperators) {
+        setListOperators(listOperators);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    listRequest();
+  }, []);
 
   const updateListOperators = async () => {
     try {
