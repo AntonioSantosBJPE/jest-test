@@ -23,7 +23,10 @@ export const validateUniqueNameOperatorsMiddleware = async (
       });
 
     if (operatorNameToValidate) {
-      throw new AppError("Operator name already exists", 409);
+      throw new AppError(
+        "Nome já existente, é necessário escolher outro nome!",
+        409
+      );
     }
   }
 
