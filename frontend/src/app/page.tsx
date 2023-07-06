@@ -8,6 +8,10 @@ const Home = () => {
         <h1 className="text-black font-bold text-xl text-center sm:text-2xl">
           Sistema de Importação de dados CSV
         </h1>
+        <div
+          className="bg-red-600 w-full h-0.5 bg-gradient-to-r from-green-500 via-cyan-500 
+          to-blue-500"
+        ></div>
         <div className="flex flex-col gap-8  w-full items-center md:flex-row p-8">
           <div className="flex flex-col gap-2 w-full md:w-1/2">
             <h3 className="text-center font-semibold text-xl">
@@ -39,7 +43,7 @@ const Home = () => {
               </p>
               <p className="text-justify">
                 Para cadastrar novos operadores, deletar antigos ou para
-                visualizar a lista dos operados com seus clientes acesse a
+                visualizar a lista dos operadores com seus clientes acesse a
                 página:
                 <Link
                   href={"/operators"}

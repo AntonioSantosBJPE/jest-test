@@ -1,12 +1,12 @@
 import { ContainerLayout } from "@/components/ContainerLayout";
 import Link from "next/link";
-import { ExportList } from "./_components/ExportLIst.tsx";
-import { UploadList } from "./_components/UploadList";
+
 export const metadata = {
-  title: "Jet-test | clientes",
-  description: "Página de gerenciamento de clientes",
+  title: "Jet-test | Operadores",
+  description: "Página de gerenciamento de operadores",
 };
-const ClientsPage = () => {
+
+const OperatorsPage = async () => {
   return (
     <ContainerLayout>
       <section className=" my-5 flex flex-col items-center gap-6 w-full h-full py-8 relative">
@@ -19,19 +19,16 @@ const ClientsPage = () => {
           Voltar para página inicial
         </Link>
         <h1 className="text-black font-bold text-xl text-center sm:text-2xl">
-          Página de gerenciamento de clientes
+          Página de gerenciamento de operadores
         </h1>
         <div
           className="bg-red-600 w-full h-0.5 bg-gradient-to-r from-green-500 via-cyan-500 
           to-blue-500"
         ></div>
-        <div className="w-full flex flex-col md:flex-row gap-10 items-center justify-center">
-          <UploadList />
-          <ExportList />
-        </div>
+        <div className="w-full flex flex-col md:flex-row gap-10 items-center justify-center"></div>
       </section>
     </ContainerLayout>
   );
 };
 
-export default ClientsPage;
+export default OperatorsPage;
