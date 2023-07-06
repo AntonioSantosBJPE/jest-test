@@ -1,6 +1,6 @@
 export interface IclientsRequest {
   name: string;
-  bithDate: string;
+  birthDate: string;
   value: string;
   email: string;
 }

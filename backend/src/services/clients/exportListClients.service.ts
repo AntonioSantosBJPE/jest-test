@@ -12,7 +12,7 @@ export const exportListClientsService = async (): Promise<void> => {
   const csvData = listClients.map((item) => {
     return {
       nome: item.name,
-      nascimento: item.bithDate,
+      nascimento: item.birthDate,
       valor: item.value,
       email: item.email,
     };

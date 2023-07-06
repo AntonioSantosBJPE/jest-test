@@ -18,7 +18,7 @@ export const loadClients = (
 
         clients.push({
           name: nome,
-          bithDate: nascimento,
+          birthDate: nascimento,
           email: email,
           value: valor,
         });

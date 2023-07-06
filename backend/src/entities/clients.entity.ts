@@ -12,7 +12,7 @@ export class Client {
   email: string;
 
   @Column({ type: "varchar", length: "120" })
-  bithDate: string;
+  birthDate: string;
 
   @Column({ type: "varchar", length: "120" })
   value: string;
