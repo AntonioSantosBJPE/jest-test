@@ -2,7 +2,6 @@ import { ReactNode } from "react";
 
 export interface IoperatorsProviderProps {
   children: ReactNode;
-  requestListOperators: Ioperator[] | undefined;
 }
 
 export interface IoperatorsContext {
