@@ -17,7 +17,7 @@ export const Header = () => {
 
         <div className="flex gap-4">
           <Link
-            href={"/"}
+            href={"/operators"}
             className="transition ease-in-out delay-150  text-gray-800 hover:text-gray-700
           hover:-translate-y-1 hover:scale-110 hover:underline hover:underline-offset-2
            duration-300"
@@ -25,7 +25,7 @@ export const Header = () => {
             Operadores
           </Link>
           <Link
-            href={"/"}
+            href={"/clients"}
             className="transition ease-in-out delay-150  text-gray-800 hover:text-gray-700
             hover:-translate-y-1 hover:scale-110 hover:underline hover:underline-offset-2
              duration-300"

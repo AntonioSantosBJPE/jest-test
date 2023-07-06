@@ -29,7 +29,7 @@ const Home = () => {
                 Para importar sua lista de clientes ou para exportar a lista de
                 clientes cadastrados acesse a página:
                 <Link
-                  href={"/"}
+                  href={"/clients"}
                   className="transition ease-in-out delay-150  text-gray-800 hover:text-gray-700
             underline underline-offset-2 hover:-translate-y-1 hover:scale-110 duration-300
              ml-2 hover:decoration-2"
@@ -42,7 +42,7 @@ const Home = () => {
                 visualizar a lista dos operados com seus clientes acesse a
                 página:
                 <Link
-                  href={"/"}
+                  href={"/operators"}
                   className="transition ease-in-out delay-150  text-gray-800 hover:text-gray-700
             underline underline-offset-2 underline- hover:-translate-y-1 hover:scale-110 duration-300
              ml-2 hover:decoration-2"
