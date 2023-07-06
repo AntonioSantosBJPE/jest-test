@@ -19,9 +19,16 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body className={inter.className}>
-        <Header />
-        {children}
-        <Footer />
+        <div className="w-full min-h-screen flex flex-col ">
+          <Header />
+          <main
+            className=" grow px-3 flex items-center justify-center bg-gradient-to-r 
+          from-green-500 via-cyan-500 to-blue-500"
+          >
+            {children}
+          </main>
+          <Footer />
+        </div>
       </body>
     </html>
   );

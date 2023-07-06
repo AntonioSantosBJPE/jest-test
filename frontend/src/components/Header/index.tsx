@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export const Header = () => {
   return (
-    <header className="w-full border-b-2 border-gray-300">
+    <header className="w-full border-b-2 border-gray-300 flex-none">
       <div
         className="mx-auto my-0 h-28 w-full max-w-[1200px] flex flex-col items-center 
       justify-around p-3 sm:h-20 sm:flex-row sm:justify-between"
