@@ -2,6 +2,7 @@ import { ContainerLayout } from "@/components/ContainerLayout";
 import { ContainerSplitLine } from "@/components/ContainerSplitLine";
 import Link from "next/link";
 import { FormCreateOperator } from "./_components/_FormCreateOperator.tsx";
+import { SectionListOperators } from "./_components/_SectionListOperators";
 import { OperatorsProvider } from "./_contexts/OperatorsContext";
 import { requestListOperators } from "./_utils/requestListOperators";
 
@@ -31,6 +32,7 @@ const OperatorsPage = async () => {
           <div className="w-full flex flex-col  gap-10 items-center justify-center">
             <FormCreateOperator />
             <ContainerSplitLine />
+            <SectionListOperators />
           </div>
         </section>
       </ContainerLayout>

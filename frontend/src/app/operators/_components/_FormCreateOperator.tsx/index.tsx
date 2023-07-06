@@ -36,7 +36,7 @@ export const FormCreateOperator = () => {
     }
   };
   return (
-    <div className="flex flex-col gap-4 w-full items-center">
+    <section className="flex flex-col gap-4 w-full items-center">
       <h4 className="text-center text-xl font-semibold ">
         Para cadastrar operadores é muito fácil!
       </h4>
@@ -76,6 +76,6 @@ export const FormCreateOperator = () => {
           )}
         </Button>
       </form>
-    </div>
+    </section>
   );
 };

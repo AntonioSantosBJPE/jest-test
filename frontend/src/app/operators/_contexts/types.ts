@@ -9,6 +9,7 @@ export interface IoperatorsContext {
   listOperators: Ioperator[] | undefined;
   updateListOperators: () => Promise<void>;
   deleteOperator: (operatorId: number) => Promise<void>;
+  loading: boolean;
 }
 
 interface Iclient {

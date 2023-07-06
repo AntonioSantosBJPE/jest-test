@@ -22,10 +22,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <div className="w-full min-h-screen flex flex-col ">
           <Header />
-          <main
-            className=" grow px-3 flex items-center justify-center bg-gradient-to-r 
-          from-green-500 via-cyan-500 to-blue-500"
-          >
+          <main className=" grow px-3 flex items-center justify-center bg-gradient-to-r">
             {children}
           </main>
           <Footer />
