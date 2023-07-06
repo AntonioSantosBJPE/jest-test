@@ -14,5 +14,5 @@ export const createListClientsService = async (
 
   await distributeClients(listClientsRequest);
 
-  return "Customer list successfully created";
+  return "Upload realizado com sucesso!";
 };
