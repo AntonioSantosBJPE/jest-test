@@ -54,22 +54,34 @@ export const UploadList = () => {
   };
 
   return (
-    <form
-      onSubmit={handleFormSubmit}
-      ref={formRef}
-      className="flex flex-col  gap-4 w-full max-w-md "
-    >
-      <InputUpload onChange={handleFileChange} />
+    <div className="flex flex-col gap-4 w-full max-w-md md:w-1/2">
+      <h4 className="text-center text-xl font-semibold ">
+        Para cadastrar clientes é muito fácil!
+      </h4>
+      <h5 className="text-justify">
+        Basta clicar no botão{" "}
+        <span className="font-bold underline">Escolher Arquivo</span>, logo
+        abaixo, selecionar seu arquivo, apenas arquivos do tipo .csv são
+        aceitos, e na sequencia clicar no botão{" "}
+        <span className="font-bold underline">Exporta lista de clientes</span>.
+      </h5>
+      <form
+        onSubmit={handleFormSubmit}
+        ref={formRef}
+        className="flex flex-col gap-4 w-full "
+      >
+        <InputUpload onChange={handleFileChange} />
 
-      <Button type="submit" disabled={loading}>
-        {loading ? (
-          <div className="flex w-full items-center justify-center gap-2">
-            <Spinner /> <span>Exportando</span>
-          </div>
-        ) : (
-          "Exportar"
-        )}
-      </Button>
-    </form>
+        <Button type="submit" disabled={loading}>
+          {loading ? (
+            <div className="flex w-full items-center justify-center gap-2">
+              <Spinner /> <span>Exportando</span>
+            </div>
+          ) : (
+            "Exportar lista de clientes"
+          )}
+        </Button>
+      </form>
+    </div>
   );
 };

@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <ContainerLayout>
       <section className=" my-5 flex flex-col items-center gap-6 w-full h-full py-8 ">
-        <h1 className="text-black font-bold text-2xl text-center">
+        <h1 className="text-black font-bold text-xl text-center sm:text-2xl">
           Sistema de Importação de dados CSV
         </h1>
         <div className="flex flex-col gap-8  w-full items-center md:flex-row p-8">

@@ -5,7 +5,7 @@ interface IcontainerLayoutProps {
 }
 export const ContainerLayout = ({ children }: IcontainerLayoutProps) => {
   return (
-    <div className="mx-auto my-0 w-full  max-w-[1200px] px-3 bg-white rounded-lg">
+    <div className="mx-auto my-2 w-full  max-w-[1200px] px-3 bg-white rounded-lg">
       {children}
     </div>
   );

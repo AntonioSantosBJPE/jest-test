@@ -37,9 +37,13 @@ export const ExportList = () => {
     }
   };
   return (
-    <div>
-      <h4>Deseja realizar o download da lista de clientes cadastrados? </h4>
-      <h5>É muito fácil basta clicar no botão abaixo!</h5>
+    <div className="flex flex-col gap-4 w-full max-w-md md:w-1/2">
+      <h4 className="text-justify text-xl font-semibold ">
+        Deseja realizar o download da lista de clientes cadastrados?{" "}
+      </h4>
+      <h5 className="text-center">
+        É muito fácil basta clicar no botão abaixo!
+      </h5>
       <Button onClick={handleClick}>
         {loading ? (
           <div className="flex w-full items-center justify-center gap-2">
