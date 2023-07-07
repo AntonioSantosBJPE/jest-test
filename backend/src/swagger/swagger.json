@@ -11,12 +11,12 @@
   },
   "servers": [
     {
-      "url": "http://localhost:4000/",
-      "description": "Ambiente de Teste"
+      "url": "https://jet-test-production.up.railway.app/api-docs/",
+      "description": "Ambiente de produção"
     },
     {
       "url": "http://localhost:4000/",
-      "description": "Ambiente de produção"
+      "description": "Ambiente de Teste"
     }
   ],
   "paths": {
