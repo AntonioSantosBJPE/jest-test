@@ -1,4 +1,5 @@
 import { NextFunction, Request, Response } from "express";
+import { MulterError } from "multer";
 import { ZodError } from "zod";
 export class AppError extends Error {
   statusCode: number;
@@ -23,7 +24,8 @@ export const errorHandler = (
     return res.status(400).json({ message: err.flatten().fieldErrors });
   }
 
-  if (err instanceof Error) {
+  if (err instanceof MulterError) {
+    return res.status(400).json({ message: err.message });
   }
 
   console.error(err);
