@@ -14,14 +14,5 @@ export const updateOperatorService = async (
 
   await operatorRepository.save(operatorUpdate);
 
-  const findOperator: Operator | null = await operatorRepository.findOne({
-    where: {
-      id: operator.id,
-    },
-    relations: {
-      clients: true,
-    },
-  });
-
-  return findOperator!;
+  return operatorUpdate;
 };
