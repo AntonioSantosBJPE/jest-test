@@ -11,7 +11,7 @@
   },
   "servers": [
     {
-      "url": "https://jet-test-production.up.railway.app/api-docs/",
+      "url": "https://jet-test-production.up.railway.app",
       "description": "Ambiente de produção"
     },
     {
