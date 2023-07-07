@@ -20,7 +20,6 @@ export default {
     if (acceptedTypes === "text/csv") {
       callback(null, true);
     } else {
-      callback(null, false);
       callback(new AppError("Only csv format allowed", 404));
     }
   },
